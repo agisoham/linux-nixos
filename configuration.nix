@@ -78,9 +78,9 @@
   environment.pathsToLink = [ "/share/gsettings-schemas" ];
 
   # User accounts and security
-  users.users.ilyamiro = {
+  users.users.soham = {
     isNormalUser = true;
-    description = "ilyamiro";
+    description = "soham";
     extraGroups = [ "networkmanager" "wheel" "video" "adbusers" "libvirtd"]; 
     packages = with pkgs; [
     #  thunderbird
@@ -91,18 +91,6 @@
 
   users.defaultUserShell = pkgs.zsh;
   system.userActivationScripts.zshrc = "touch .zshrc";
-
-  security.sudo.extraRules = [
-    {
-      users = [ "ilyamiro" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
 
   services.logind.settings.Login = {
     HandlePowerKey = "ignore";
@@ -130,7 +118,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true; 
   
-  home-manager.users.ilyamiro = {
+  home-manager.users.soham = {
     imports = [ ./home.nix ];
   };
 
@@ -175,10 +163,10 @@
   services.flatpak.enable = true;
 
   # Environment Variables
-  # environment.variables.XDG_DATA_DIRS = lib.mkForce "/home/ilyamiro/.nix-profile/share:/run/current-system/sw/share";
+  # environment.variables.XDG_DATA_DIRS = lib.mkForce "/home/soham/.nix-profile/share:/run/current-system/sw/share";
 
   # Networking and time
-  networking.hostName = "ilyamiro"; 
+  networking.hostName = "soham"; 
   
   networking.networkmanager = {
     enable = true;
@@ -216,8 +204,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Power Management Services
   services.power-profiles-daemon.enable = true; 
