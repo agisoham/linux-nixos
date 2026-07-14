@@ -78,9 +78,9 @@
   environment.pathsToLink = [ "/share/gsettings-schemas" ];
 
   # User accounts and security
-  users.users.soham = {
+  users.users.AgiSoham = {
     isNormalUser = true;
-    description = "soham";
+    description = "AgiSoham";
     extraGroups = [ "networkmanager" "wheel" "video" "adbusers" "libvirtd"]; 
     packages = with pkgs; [
     #  thunderbird
@@ -118,7 +118,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true; 
   
-  home-manager.users.soham = {
+  home-manager.users.AgiSoham = {
     imports = [ ./home.nix ];
   };
 
@@ -163,10 +163,10 @@
   services.flatpak.enable = true;
 
   # Environment Variables
-  # environment.variables.XDG_DATA_DIRS = lib.mkForce "/home/soham/.nix-profile/share:/run/current-system/sw/share";
+  # environment.variables.XDG_DATA_DIRS = lib.mkForce "/home/AgiSoham/.nix-profile/share:/run/current-system/sw/share";
 
   # Networking and time
-  networking.hostName = "soham"; 
+  networking.hostName = "AgiSoham"; 
   
   networking.networkmanager = {
     enable = true;
