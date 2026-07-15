@@ -109,8 +109,8 @@
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; 
-    dedicatedServer.openFirewall = true; 
+    remotePlay.openFirewall = false; 
+    dedicatedServer.openFirewall = false; 
   };
   programs.gamemode.enable = true;
 
