@@ -263,12 +263,17 @@
   programs.virt-manager.enable = true;
 	
   # Bootloader and kernel
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub = {
+  enable = true;
+  device = "nodev";
+  efiSupport = true;
+  useOSProber = true;
+};
+boot.loader.efi.canTouchEfiVariables = true;
 
   # Kernel Packages and Optimization
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  hardware.cpu.amd.updateMicrocode = true;
+  hardware.cpu.intel.updateMicrocode = true;
 
   boot.kernelModules = [ "tcp_bbr" ]; # FIX: Network Congestion Control (Helps with packet jitter)
   boot.kernel.sysctl = {
